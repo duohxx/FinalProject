@@ -2,6 +2,7 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
+import ListItem from '@mui/material/ListItem'
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -17,44 +18,77 @@ import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
+import Information from "../subjectList/Information";
+import SubjectList from 'contains/subjectList/SubjectList';
+
+import bgFront from "assets/images/rotating-card-bg-front.jpeg";
+import bgBack from "assets/images/rotating-card-bg-back.jpeg";
+import bgImage from "assets/images/background.jpg";
+
 const sections = [
-  { title: 'Technology', url: '#' },
-  { title: 'Design', url: '#' },
-  { title: 'Culture', url: '#' },
-  { title: 'Business', url: '#' },
-  { title: 'Politics', url: '#' },
-  { title: 'Opinion', url: '#' },
-  { title: 'Science', url: '#' },
-  { title: 'Health', url: '#' },
-  { title: 'Style', url: '#' },
-  { title: 'Travel', url: '#' },
+  { title: 'Bone', url: '#' },
+  { title: 'Brain', url: '#' },
+  { title: 'Eye', url: '#' },
+  { title: 'Heart', url: '#' },
+  { title: 'Lung', url: '#' },
+  { title: 'Skin', url: '#' },
+  { title: 'Teeth', url: '#' },
+  { title: 'Nose', url: '#' },
+  { title: 'Hair', url: '#' },
+  { title: 'Kidney', url: '#' },
 ];
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
   description:
     "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: 'https://source.unsplash.com/random',
+  image: bgImage,
   imageText: 'main image description',
   linkText: 'Continue reading…',
 };
 
+import brainImage from "assets/subjectList/brain.jpg";
+import boneImage from "assets/subjectList/bone.jpg";
+import heartImage from "assets/subjectList/heart.jpg";
+import eyeImage from "assets/subjectList/eye.jpg";
+import lungImage from "assets/subjectList/lung.jpg";
+import skinImage from "assets/subjectList/skin.jpg";
 const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Brain',
     description:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+    image : brainImage,
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Bone',
     description:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random',
-    imageLabel: 'Image Text',
+    image: boneImage,
+  },
+  {
+    title: 'heart',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: heartImage,
+  },
+  {
+    title: 'eye',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image : eyeImage,
+  },
+  {
+    title: 'lung',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: lungImage,
+  },
+  {
+    title: 'skin',
+    description:
+      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+    image: skinImage,
   },
 ];
 
@@ -88,16 +122,16 @@ const theme = createTheme();
 
 export default function Blog() {
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="Online Hosptial" sections={sections} />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
+          <Grid container justifyContent="space-around" sm={1} md={12} spacing={3}>
+              {featuredPosts.map((post) => (
+                <SubjectList key={post.title} post={post} />
+              ))}
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="From the firehose" posts={posts} />
@@ -110,10 +144,19 @@ export default function Blog() {
           </Grid>
         </main>
       </Container>
+      <Information />
+      {
+      //   <SubjectList 
+      //   image={bgBack}
+      //   title="Discover More"
+      //   description="You will save a lot of time going from prototyping to full-functional code because all elements are implemented."
+      // />
+      }
+      
       <Footer
         title="Footer"
         description="Something here to give the footer a purpose!"
       />
-    </ThemeProvider>
+    </div>
   );
 }
