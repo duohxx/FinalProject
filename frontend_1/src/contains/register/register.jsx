@@ -138,7 +138,7 @@ class Register extends React.Component {
                   margin="normal"
                   required
                   fullWidth
-                  name="password"
+                  name="password" 
                   label="Input your Password"
                   type="password"
                   id="password"

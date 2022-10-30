@@ -5,44 +5,48 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+/* eslint-disable*/ 
+/*
+Routing component of the main interface
+ */
 
-import bgImage from "assets/images/background.jpg";
+import React, {Component} from 'react'
+import { Route, Routes } from "react-router-dom";
+import {connect} from 'react-redux'
+import Cookies from 'js-cookie' 
 
-const theme = createTheme();
+import DoctorInfo from '../DoctorInfo/doctorInfo'
+import DoctorList from '../doctorList/doctorList'
+import CustomerInfo from '../CustomerInfo/customerInfo'
 
-class Main extends React.Component {
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+class Main extends Component {
 
   render() {
+
     return (
-      <ThemeProvider theme={theme}>
-        <Grid item>
-          <Link href="/signIn" variant="body2">
-            Sign In
-          </Link>
-        </Grid>
-      </ThemeProvider>
-    );
+      <div>
+          <Routes>
+            <Route path="/doctorInfo" element={<DoctorInfo />} />
+            <Route path="/customerInfo" element={<CustomerInfo />} />
+            <Route path="/doctorList" element={<DoctorList />} />
+          </Routes>
+      </div>
+    )
   }
 }
 
-export default Main;
+export default connect(
+  state => ({}),
+  {}
+)(Main)
+
+/*
+1. Realize automatic login:
+1. componentDidMount()
+Yes (userid in cookie), but no login (no _id in user managed by Redux) send a request to obtain the corresponding user:
+2. render()
+1). If there is no userID in the cookie, redirect to login directly
+2). Check whether the user managed by Redux has _id. If not, do not display any information temporarily
+3). If yes, you have logged in, and the corresponding interface is displayed
+4). If the root path is requested: calculate a redirection routing path according to the type and header of the user, and automatically redirect
+ */

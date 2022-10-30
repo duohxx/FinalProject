@@ -21,10 +21,10 @@ export default function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/register" element={<Register />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/signIn" element={<SignIn />} />
             <Route path="/blog" element={<Blog /> } />
-            <Route path="/Information" element={<Information />} />
+            <Route path="/*" exact={false} element={<Main />} /> default
           </Routes>
         </BrowserRouter>
       </Provider>

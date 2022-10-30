@@ -39,12 +39,12 @@ const sections = [
 ];
 
 const mainFeaturedPost = {
-  title: 'Title of a longer featured blog post',
+  title: 'Doctor List',
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    "if an online medical website allows professional doctors to guide patients and their families through video, it will significantly improve the efficiency of medical treatment.",
   image: bgImage,
   imageText: 'main image description',
-  linkText: 'Continue reading…',
+  linkText: 'Doctor Information',
 };
 
 import brainImage from "assets/subjectList/brain.jpg";
@@ -53,6 +53,7 @@ import heartImage from "assets/subjectList/heart.jpg";
 import eyeImage from "assets/subjectList/eye.jpg";
 import lungImage from "assets/subjectList/lung.jpg";
 import skinImage from "assets/subjectList/skin.jpg";
+
 const featuredPosts = [
   {
     title: 'Brain',
