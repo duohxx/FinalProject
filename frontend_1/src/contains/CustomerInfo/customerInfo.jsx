@@ -128,6 +128,7 @@ class CustomerInfo extends Component{
                                     fullWidth
                                     autoComplete="family-name"
                                     variant="standard"
+                                    onChange={val => {this.handleChange('lastName', val)}}
                                 />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -152,22 +153,13 @@ class CustomerInfo extends Component{
                                 <Grid item xs={12}>
                                 <TextField
                                     required
-                                    id="address1"
-                                    name="address1"
-                                    label="Address line 1"
+                                    id="address"
+                                    name="address"
+                                    label="Address line "
                                     fullWidth
-                                    autoComplete="shipping address-line1"
+                                    autoComplete="address"
                                     variant="standard"
-                                />
-                                </Grid>
-                                <Grid item xs={12}>
-                                <TextField
-                                    id="address2"
-                                    name="address2"
-                                    label="Address line 2"
-                                    fullWidth
-                                    autoComplete="shipping address-line2"
-                                    variant="standard"
+                                    onChange={val => {this.handleChange('address', val)}}
                                 />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -177,39 +169,31 @@ class CustomerInfo extends Component{
                                     name="city"
                                     label="City"
                                     fullWidth
-                                    autoComplete="shipping address-level2"
+                                    autoComplete="City"
                                     variant="standard"
+                                    onChange={val => {this.handleChange('city', val)}}
                                 />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                 <TextField
-                                    id="state"
-                                    name="state"
-                                    label="State/Province/Region"
+                                    id="Country"
+                                    name="Country"
+                                    label="State/Country/Region"
                                     fullWidth
                                     variant="standard"
+                                    onChange={val => {this.handleChange('country', val)}}
                                 />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    id="zip"
-                                    name="zip"
-                                    label="Zip / Postal code"
-                                    fullWidth
-                                    autoComplete="shipping postal-code"
-                                    variant="standard"
-                                />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
                                 <TextField
                                     required
-                                    id="country"
-                                    name="country"
-                                    label="Country"
+                                    id="Info"
+                                    name="Info"
+                                    label="Info"
                                     fullWidth
-                                    autoComplete="shipping country"
+                                    autoComplete="Info"
                                     variant="standard"
+                                    onChange={val => {this.handleChange('Info', val)}}
                                 />
                                 </Grid>
                                 <Grid item xs={12}>
